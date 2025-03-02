@@ -11,7 +11,8 @@ class Board
 
   def print_board
     @board.each_with_index do |row, index|
-      puts "#{index + 1} #{row.join(' ')} | #{hints[index].join(' ')}"
+      puts "0#{index + 1} #{row.join(' ')} | #{hints[index].join(' ')}" if index + 1 < 10
+      puts "#{index + 1} #{row.join(' ')} | #{hints[index].join(' ')}" if index + 1 >= 10
     end
   end
 end
