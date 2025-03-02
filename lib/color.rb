@@ -13,6 +13,7 @@ class Color
   end
 
   def self.color(text)
+    @colors[text] = random_color if @colors[text].nil?
     @colors[text]
   end
 end
