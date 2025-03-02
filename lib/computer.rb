@@ -5,5 +5,6 @@ class Computer
 
   def color_code
     @code.each { |color| print Color.color(color).concat(' ') }
+    puts
   end
 end
