@@ -14,5 +14,6 @@ class Game
 
   def play
     @board.print_board
+    @computer.color_code
   end
 end
