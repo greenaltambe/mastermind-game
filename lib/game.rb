@@ -21,15 +21,19 @@ class Game
   end
 
   def player_turn
-    until game_over?
+    loop do
       @board.print_board
       player_guess = @player.guess
-      @computer.check_guess(player_guess) # Not implemented
-      hint = @computer.hints(player_guess) # Not implemented
+      hint = @computer.hints(player_guess)
       @board.add_row(player_guess, hint) # Not implemented
+      break if game_over?(player_guess)
     end
+    @board.print_board
   end
-  def game_over?
+
+  def game_over?(player_guess)
+    return true if @board.turn == 12 || @computer.check_guess(player_guess)
+
     false
   end
 end

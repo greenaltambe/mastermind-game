@@ -3,10 +3,17 @@ class Player
 
   def guess
     guess = []
-    Color.colors
-    print 'Enter your guess: '
+    colors = Color.colors
+    colors.each_with_index do |(color, emoji), index|
+      puts "#{index + 1}. #{color.to_s.ljust(8)} #{emoji}"
+    end
+    puts 'Enter your guess'
 
-    4.times { guess.append(gets.chomp) }
+    4.times do
+      print 'Guess>'
+      input = gets.chomp
+      guess.append(colors.to_a[input.to_i - 1][0])
+    end
     guess
   end
 end
